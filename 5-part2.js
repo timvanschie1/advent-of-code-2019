@@ -33,6 +33,16 @@ function execute(input) {
         const value1 = firstParamMode === 0 ? memory[memory[i + 1]] : memory[i + 1];
         const value2 = secondParamMode === 0 ? memory[memory[i + 2]] : memory[i + 2];
 
+        if (optCode === 1) {
+            memory[memory[i + 3]] = addition(value1, value2);
+            i = i + 4;
+        }
+
+        if (optCode === 2) {
+            memory[memory[i + 3]] = multiply(value1, value2);
+            i = i + 4;
+        }
+
         if (optCode === 4) {
             console.log('Output: ', value1);
 
@@ -41,19 +51,30 @@ function execute(input) {
                 console.log('Huidige memory:');
                 console.dir(memory, {'maxArrayLength': null});
             }
-
             i = i + 2;
+        }
+
+        if (optCode === 5) {
+            i = (value1 !== 0) ? value2 : i + 3;
             continue;
         }
 
-        if (optCode === 2) {
-            memory[memory[i + 3]] = multiply(value1, value2);
-        } else if (optCode === 1) {
-            memory[memory[i + 3]] = addition(value1, value2);
+        if (optCode === 6) {
+            i = (value1 === 0) ? value2 : i + 3;
+            continue;
         }
 
-        i = i + 4;
+        if (optCode === 7) {
+            memory[memory[i + 3]] = (value1 < value2) ? 1 : 0;
+            i = i + 4;
+            continue;
+        }
+
+        if (optCode === 8) {
+            memory[memory[i + 3]] = (value1 === value2) ? 1 : 0;
+            i = i + 4;
+        }
     }
 }
 
-execute(1);
+execute(5);
