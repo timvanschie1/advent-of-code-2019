@@ -113,7 +113,7 @@ function execute(program) {
         highestOutput = (amplifierEOutput > highestOutput) ? amplifierEOutput : highestOutput;
     }
 
-    console.log(highestOutput);
+    console.log('Highest output', highestOutput);
 }
 
 execute(puzzleInput);

@@ -1,5 +1,5 @@
 const puzzleInput = require('./6-puzzleInput');
-// const puzzleInput = ['COM)B', 'B)C', 'C)D', 'D)E', 'E)F', 'B)G', 'G)H', 'D)I', 'E)J', 'J)K', 'K)L', 'K)YOU', 'I)SAN'];
+// const program = ['COM)B', 'B)C', 'C)D', 'D)E', 'E)F', 'B)G', 'G)H', 'D)I', 'E)J', 'J)K', 'K)L', 'K)YOU', 'I)SAN'];
 
 function createNewPath(currentNewPath, cleanMap) {
     for (let i = 0; i < cleanMap.length; i++) {
